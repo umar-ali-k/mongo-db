@@ -1,0 +1,46 @@
+const mongoose=require('mongoose')
+const Schema=mongoose.Schema
+
+const MarioCharSchema=new Schema({
+    name:String,
+    weight:Number
+})
+
+const MarioChar=mongoose.model('mariochar',MarioCharSchema)
+
+module.exports=MarioChar
+
+
+//importing a model in another file
+const assert=require('assert')
+const MarioChar=require('../models/mariochar')
+
+
+MarioChar.findOne({name:'Mario'})
+MarioChar.findOne({name:'Mario'})
+MarioChar.findOne({name:'Mario'})
+MarioChar.findOne({name:'Mario'}).then(function(result){
+     console.log(result)
+})
+
+//we do findOne operation on the model.
+
+
+
+//saving a model on mongodb
+const MarioChar=require('../models/mariochar')
+//Describe tests
+describe('Saving records',function(){
+  //create test one
+  it('Saves a record to the database',function(done){
+    let char=new MarioChar({
+      name:'Mario'
+    })
+    char.save().then(function(){
+      assert(char.isNew===false)
+      done()
+    })
+  })
+})
+
+// we do save operation on the instance of the model 
