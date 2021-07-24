@@ -27,7 +27,7 @@ char.save().then(function(){
 //fining a  record
 MarioChar.findOne({name:'Mario'})
 MarioChar.findOne({name:'Mario'})
-MarioChar.findOne({name:'Mario'})
+MarioChar.findOne({_id: idxGiven})
 MarioChar.findOne({name:'Mario'}).then(function(result){
      console.log(result)
 })
