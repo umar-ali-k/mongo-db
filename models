@@ -1,3 +1,4 @@
+#File 1
 const mongoose=require('mongoose')
 const Schema=mongoose.Schema
 
@@ -10,12 +11,20 @@ const MarioChar=mongoose.model('mariochar',MarioCharSchema)
 
 module.exports=MarioChar
 
-
+#File 2
 //importing a model in another file
 const assert=require('assert')
 const MarioChar=require('../models/mariochar')
 
 
+
+//Creating a record
+let char=new MarioChar({ name:'mario'})
+char.save().then(function(){
+   console.log('Work done') })
+
+
+//fining a  record
 MarioChar.findOne({name:'Mario'})
 MarioChar.findOne({name:'Mario'})
 MarioChar.findOne({name:'Mario'})
@@ -44,3 +53,12 @@ describe('Saving records',function(){
 })
 
 // we do save operation on the instance of the model 
+
+
+    
+
+
+
+
+
+
